@@ -12,54 +12,60 @@ angular.module('starter', ['ionic','angular-loading-bar'])
   $scope.form ={Matricula:"", Mes:data.getMonth()+1, Ano: data.getFullYear()};
 
   $scope.doAlert = function(){
+
       switch ($scope.form.Mes){
-      case 1:
+      case "1":
         mes = "01";
         break;
-      case 2:
+      case "2":
         mes = "02";
         break;
-      case 3:
+      case "3":
         mes = "03";
         break;
-      case 4:
+      case "4":
         mes = "04";
         break;
-      case 5:
+      case "5":
         mes = "05";
         break;
-      case 6:
+      case "6":
         mes = "06";
         break;
-      case 7:
+      case "7":
         mes = "07";
         break;
-      case 8:
+      case "8":
         mes = "08";
         break;
-      case 9:
+      case "9":
         mes = "09";
         break;
-      case 10:
+      case "10":
         mes = "10";
         break;
-      case 11:
+      case "11":
         mes = "11";
         break;
-      case 12:
+      case "12":
         mes = "12";
         break;
+      default:
+        mes = "0";
+        break;
     }
-    
+   
     $http.get('http://wrsolucoesinformatica.com/server-ponto.php?tx_matricula='+ $scope.form.Matricula +'&tx_mes_periodo='+ mes +'&tx_ano_periodo='+ $scope.form.Ano)
     .then(function (response) {
       if(response.data.OK==true){
         $scope.dados = response.data;
         $scope.Nome = 'SERVIDOR: '+response.data.nome;
+        $scope.Erro ='';
         $scope.listshow =true;
       }else{
         $scope.listshow =false;
-        $scope.Nome = 'SERVIDOR NÃO ENCONTRADO';
+         $scope.Nome ='';
+        $scope.Erro = 'SERVIDOR NÃO ENCONTRADO';
       }
     });
   }

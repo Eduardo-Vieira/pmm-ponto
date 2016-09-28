@@ -63,25 +63,49 @@
                 </label>
                 <label class="item item-input">
                   <span class="input-label">MÊS</span>
-                  <input type="number" placeholder="00" min="1" max="12" ng-model="form.Mes">
+                  <select name="Mes" ng-model="form.Mes" class="input-select">
+                    <option value="1">01</option>
+                    <option value="2">02</option>
+                    <option value="3">03</option>
+                    <option value="4">04</option>
+                    <option value="5">05</option>
+                    <option value="6">06</option>
+                    <option value="7">07</option>
+                    <option value="8">08</option>
+                    <option value="9">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+                 
                 </label>
                 <label class="item item-input">
                    <span class="input-label">ANO</span>
-                   <input type="number" placeholder="0000" ng-model="form.Ano">
+                    <select name="Ano" ng-model="form.Ano" class="input-select">
+                    <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                    <option value="2014">2014</option>
+                    <option value="2013">2013</option>
+                    <option value="2012">2012</option>
+                    <option value="2011">2011</option>
+                  </select>
+                  
                 </label>
               </div>
            </form>
            <button  class="button button-block button-positive" ng-click="doAlert()">Consultar</button>
-            <br/> <br/>
-            <b>{{Nome}}</b>
+            <p><b>{{Nome}}</b</p>
             <br/> <br/>
             <ul class="list" ng-show="listshow">
                 <li class="item" ng-repeat="(x,y) in dados.retorno">
                   Dia: <b>{{x}}</b>
                   <p ng-repeat="h in y">{{h}}</p>
                 </li>
-            </ul>        
-         </div>        
+            </ul>
+
+            <p><div align="center"><b><font color="red">{{Erro}}</font></b></div></p>
+
+         </div><!-- Fim Controller-->       
         
         </div>        
       </ion-content>
