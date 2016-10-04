@@ -36,20 +36,14 @@
   </head>
   <body ng-app="starter">
     <div id="loading-bar-container"></div>
-    <ion-pane>
-      <ion-header-bar class="bar">
-       
-         <div class="bar-header bar-balanced">
-           <h1 class="title">Consulta de Ponto PMM</h1>
-        </div>
+    <ion-pane class="ion-pane-back">
+      <ion-header-bar class="bar bar-header bar-positive" align-title="center">
+        <p class="title">PONTO ELETRÔNICO</p>
       </ion-header-bar>
-      <div class="bar bar-header bar-balanced">
-         <h1 class="title">Consulta de Ponto PMM</h1>
-      </div>
       <ion-content>
         <div class="main">
         <div class="img-centro"> 
-         <img src="img/logo2-2.png"/>
+         <img src="img/logo2-4.png" width="128"/>
         </div> 
          <p class="red-color">Os registros de batidas exibidos a seguir referem-se apenas aos registros coletados (não consolidados). Para maiores esclarecimentos entre em contato com o setor de RH de sua Secretaria.</p>
          
@@ -96,12 +90,21 @@
            <button  class="button button-block button-positive" ng-click="doAlert()">Consultar</button>
             <p><b>{{Nome}}</b</p>
             <br/> <br/>
-            <ul class="list" ng-show="listshow">
-                <li class="item" ng-repeat="(x,y) in dados.retorno">
-                  Dia: <b>{{x}}</b>
-                  <p ng-repeat="h in y">{{h}}</p>
+            <!--<ul class="list" ng-show="listshow">
+                <li class="item" ng-repeat="x in datafild">
+                  <b>({{x.date}})-{{x.diaString}}</b>
+                  <p ng-repeat="h in x.batidas">{{h}}</p>
                 </li>
-            </ul>
+            </ul>-->
+
+           <div class="row" ng-show="listshow">
+                <div class="cols" ng-repeat="x in datafild">
+                  ({{x.date}})<br/>{{x.diaString}}<br/>
+                  <span ng-repeat="h in x.batidas">{{h}}</br></span>
+                </div>
+            </div>
+
+
 
             <p><div align="center"><b><font color="red">{{Erro}}</font></b></div></p>
 
